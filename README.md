@@ -1,6 +1,6 @@
 # Instrucciones
 
-> ejecutar el index.py para probar el scrip
+> ejecutar el index.py para probar el script
 
 
 ## ejemplo : 
