@@ -3,6 +3,7 @@ import base64
 class Image_to_base64(object):
     
     def __init__(self, route_image = ''):
+        route_image = route_image
         self.route_image = route_image
     
     
@@ -14,12 +15,11 @@ class Image_to_base64(object):
         Returns:
             str: imagen en base 64
         """
-        try:
-            with open(self.route_image) as img:
-                data = img.read()
-                base64_data = base64.b64encode(data)
-                base64_data_str = base64_data.decode('utf-8')
-                return base64_data_str
+        try:        
+            image = open(self.route_image, 'rb')
+            image_read = image.read()
+            image_64_encode = base64.encodestring(image_read)
+            return image_64_encode.decode()
             
         except Exception as err:
             print(err)
