@@ -47,3 +47,34 @@ b'\x04'
 b''
 
 """
+
+# 14
+CADENA_NUEVA = """
+b'\x02
+1H|\\^&|||cobas u 411^9033^3.2.0.1001^Int|||||||
+P||20220629113824\r\x0317\r\n'b'\x022
+P|1\r\x033F\r\n'b'\x023
+O|
+1|1012206290013|1^^^^SAMPLE||R||||||X|||20220629102255\r\x03F1\r\n'b'\x024R|1|1^SG|1.010|||||||supervisor\r\x031A\r\n'b'\x025
+C|1|I|
+C|I\r\x037E\r\n'b'\x026R|2|2^p
+H|6|||||||supervisor\r\x0382\r\n'b'\x027
+C|2|I|
+C|I\r\x0381\r\n'b'\x020R|3|3^LEU|neg|||||||supervisor\r\x03B0\r\n'b'\x021
+C|3|I|
+C|I\r\x037C\r\n'b'\x022R|4|4^NIT|neg|||||||supervisor\r\x03B9\r\n'b'\x023
+C|4|I|
+C|I\r\x037F\r\n'b'\x024R|5|5^PR
+O|neg|||||||supervisor\r\x03C3\r\n'b'\x025
+C|5|I|
+C|I\r\x0382\r\n'b'\x026R|6|6^GLU|norm|||||||supervisor\r\x0340\r\n'b'\x027
+C|6|I|
+C|I\r\x0385\r\n'b'\x020R|7|7^KET|neg|||||||supervisor\r\x03B6\r\n'b'\x021
+C|7|I|
+C|I\r\x0380\r\n'b'\x022R|8|8^UBG|norm|||||||supervisor\r\x0336\r\n'b'\x023
+C|8|I|C|I\r\x0383\r\n'b'\x024R|9|9^BIL|neg|||||||supervisor\r\x03B1\r\n'b'\x025
+C|9|I|C|I\r\x0386\r\n'b'\x026R|10|10^ERY|neg|||||||supervisor\r\x031C\r\n'b'\x027
+C|10|I|C|I\r\x03B0\r\n'b'\x020R|11|11^COL||||||||supervisor\r\x03CC\r\'b'\x021C|11|I|
+C|I\r\x03AB\r\n'b'\x022R|12|12^CLA||||||||supervisor\r\x03C2\r\n'b'\x023M|1|R
+C|10049867|20231231|52421803|20220430|||\r\x0309\r\n'b'\x024L|1|N\r\x0307\r\n'b'\x04'
+"""

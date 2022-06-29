@@ -1,12 +1,14 @@
 from classes.parse import Parse
-from settings.settings import CADENA
+from settings.settings import CADENA,CADENA_NUEVA
 
 
 if __name__ == '__main__':
     
-    resultados = Parse(CADENA)
+    resultados = Parse(CADENA_NUEVA)
         
-    resultados.separa_cadena()
+    respuesta = resultados.separa_cadena()
+    
+    print(respuesta)
     
     
     

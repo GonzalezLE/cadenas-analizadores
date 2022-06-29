@@ -1,3 +1,4 @@
+from operator import itemgetter
 import re
 import json
 
@@ -37,30 +38,35 @@ class Parse():
         _NIM = self.handle_get_nim()
         json_response = {
             'nim':_NIM,
-            'resultados':data
+            'resultados':data,
+            'cadena':self.cadena
         }
         
-        json_response = rf"{json.dumps(json_response, separators=(',', ':'))}" 
-        print(json_response)
+        return json_response
         
-        json_response.replace('"', '\\"')
         
-        file = open(f"./doc/{_NIM}.json", "w")
-        json.dump(json_response, file)
-        file.close()
         
         
     def  handle_get_nim(self):
         """
             el nim llega sobre el segmento O|            
         """
-        separa = self.cadena.split('O|')
-        
-        separa2 =separa[1].split('|')
-        
+        separa = self.cadena.split('O|')        
+        separa2 =separa[1].split('|')        
         segmenta = separa2[2].split('^')
         
-        return segmenta[2]        
+        nim = segmenta[2]
+        
+        if nim == '':            
+            for item in separa2:
+                if item != '' and item.isdigit():                    
+                    if len(item) >= 13 :
+                        nim = item
+                        break
+
+                
+                
+        return nim
         
 
         
