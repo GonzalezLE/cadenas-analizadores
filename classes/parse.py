@@ -1,6 +1,7 @@
 from operator import itemgetter
 import re
 import json
+from datetime import datetime
 
 class Parse():
 
@@ -27,10 +28,14 @@ class Parse():
                 app_code = re.sub(r'[^a-zA-Z0-9]', ' ', part[1])
                 app_code = app_code.strip()
 
+                now = datetime.now()
+
                 data.append({                    
                     'app_code': app_code,
                     'resultado': part[2],
                     'unidad': part[3],
+                    'date': f'{now.year}-{now.month}-{now.day}' ,
+                    'hour': f'{now.hour}:{now.minute}:{now.second}'
                 })                                                
 
             salto = True
