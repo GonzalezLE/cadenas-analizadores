@@ -1,4 +1,5 @@
 from operator import itemgetter
+from pickle import TRUE
 import re
 import json
 from datetime import datetime
@@ -35,8 +36,9 @@ class Parse():
                     'resultado': part[2],
                     'unidad': part[3],
                     'date': f'{now.year}-{now.month}-{now.day}' ,
-                    'hour': f'{now.hour}:{now.minute}:{now.second}'
-                })                                                
+                    'hour': f'{now.hour}:{now.minute}:{now.second}',
+                    'bandera':True
+                })
 
             salto = True
         
