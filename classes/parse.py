@@ -58,22 +58,35 @@ class Parse():
         """
             el nim llega sobre el segmento O|            
         """
-        separa = self.cadena.split('O|')        
-        separa2 =separa[1].split('|')        
-        segmenta = separa2[2].split('^')
-        
-        nim = segmenta[2]
-        
-        if nim == '':            
-            for item in separa2:
-                if item != '' and item.isdigit():                    
-                    if len(item) >= 13 :
-                        nim = item
-                        break
+        try:
+            
+            cadena = self.cadena
+            cadena = cadena.rstrip('\n')
+            separa = self.cadena.split('O|',1)   
+            
+            dataset =  separa[1].split('|')
+            
+            nim = ''
+            for element in dataset:
+                # limpiamos la cadena para que solo queden numeros
+                element = re.sub(r"[^0-9]","",element)
+                # si la cadena llega a tener espacios o saltos de linea los quitamos
+                element = element.strip()
+                # si la cadena es un digito y el numero de caracteres en 9 lo tomamos en cuenta como el nim y rompemos el siclo
+                if element.isdigit() and len(element) > 9:
+                    nim = element
+                    break
 
-                
-                
-        return nim
+
+            if nim == '':
+                nim = 'na'
+
+                            
+            return nim
+        except Exception as e:
+            print(e)
+            return 'na'
+        
         
 
         
