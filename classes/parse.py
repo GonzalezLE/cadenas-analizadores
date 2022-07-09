@@ -1,3 +1,4 @@
+from itertools import count
 from operator import itemgetter
 from pickle import TRUE
 import re
@@ -11,7 +12,7 @@ class Parse():
 
     
 
-    def separa_cadena(self):
+    def separa_cadena(self,equipo):
         """
             Separo la cadena por los resultados la primera posicion no la tomo en cuenta por que es el header                        
         """
@@ -35,22 +36,25 @@ class Parse():
                     'app_code': app_code,
                     'resultado': part[2],
                     'unidad': part[3],
-                    'date': f'{now.year}-{now.month}-{now.day}' ,
-                    'hour': f'{now.hour}:{now.minute}:{now.second}',
-                    'bandera':True
+                    
                 })
 
             salto = True
         
         _NIM = self.handle_get_nim()
         json_response = {
-            'nim':_NIM,
-            'resultados':data,
-            'cadena':self.cadena
-        }
+            'nim' : _NIM,
+            'resultados' : data,
+            'cadena' : self.cadena,
+            'date' : f'{now.year}-{now.month}-{now.day}',
+            'hour' : f'{now.hour}:{now.minute}:{now.second}',
+            'flag' : 0,
+            'branch' : '103',
+            'analyzer' : equipo,
+            'is_control':self.is_control()
+        }                
         
-        return json_response
-        
+        return json_response               
         
         
         
@@ -87,6 +91,17 @@ class Parse():
             print(e)
             return 'na'
         
+    
+    def is_control(self):
         
+        cadena_split = self.cadena.split('|')
+        nueva_cadena = cadena_split[16]
+                
+        nueva_cadena = re.sub(r"[^0-9QC-]","",nueva_cadena)
+        
+        if 'QC-' in nueva_cadena:  
+            return 1                      
+        else:
+            return 0
 
-        
+
