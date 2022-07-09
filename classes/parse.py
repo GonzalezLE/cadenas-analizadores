@@ -1,9 +1,13 @@
+from ast import For
 from itertools import count
 from operator import itemgetter
 from pickle import TRUE
 import re
 import json
 from datetime import datetime
+from xml.sax.saxutils import prepare_input_source
+
+from settings.settings import WORDS_OF_CONTROL
 
 class Parse():
 
@@ -94,14 +98,12 @@ class Parse():
     
     def is_control(self):
         
-        cadena_split = self.cadena.split('|')
-        nueva_cadena = cadena_split[16]
-                
-        nueva_cadena = re.sub(r"[^0-9QC-]","",nueva_cadena)
         
-        if 'QC-' in nueva_cadena:  
-            return 1                      
-        else:
-            return 0
-
-
+        for  word in WORDS_OF_CONTROL:
+            if word in self.cadena:                
+                return 1
+        
+        # si nunca salio es porque no la encontro
+        return 0
+        
+        
